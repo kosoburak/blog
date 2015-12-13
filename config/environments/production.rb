@@ -18,8 +18,8 @@ Rails.application.configure do
   config.action_mailer.smtp_settings = {
     :port      => 587,
     :address    => "sandbox42ed1fa9c32246daa4010f84aac28032.mailgun.org",
-    :user_name => ENV["MAILGUN_USERNAME"],
-    :password  => ENV["MAILGUN_PASSWORD"]
+    :user_name => "lubomir.kosaristan@gmail.com",
+    :password  => "noveheslo1"
   }
   config.action_mailer.default_url_options = { :host => 'intense-fortress-2073.herokuapp.com' }
   config.action_mailer.delivery_method = :smtp
