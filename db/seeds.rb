@@ -10,6 +10,6 @@ user = User.new
 user.email = "admin@admin.com"
 user.password = "adminadmin"
 user.created_at = Time.now
-user.confirmated_at = Time.now
+user.confirmed_at = Time.now
 user.save
 user.add_role "admin"
