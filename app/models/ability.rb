@@ -2,11 +2,15 @@ class Ability
   include CanCan::Ability
 
   def initialize(user)
+
+    user ||= User.new
+    alias_action :create, :read, :update, :destroy, :to => :crud
     if user.has_role? :admin
       can :manage, Post
     else
-      can [:read, :create], Post
-      can [:update, :destroy], Post, :user_id => user.id
+      #can [:read, :create], Post
+      #can [:update, :destroy], Post, :user_id => user.id
+      can :crud, Post, user_id: user.id
     end
     # Define abilities for the passed in user here. For example:
     #
