@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  load_and_authorize_resource
   before_action :set_post, only: [:show, :edit, :update, :destroy]
 
   # GET /posts
@@ -15,6 +16,7 @@ class PostsController < ApplicationController
   # GET /posts/new
   def new
     @post = current_user.posts.build
+    #@post = Post.new
   end
 
   # GET /posts/1/edit
@@ -25,6 +27,7 @@ class PostsController < ApplicationController
   # POST /posts.json
   def create
     @post = current_user.posts.build(post_params)
+    #@post = Post.new
 
     respond_to do |format|
       if @post.save
